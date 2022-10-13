@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "namespace": "survey.bot",
+  "name": "surveyEntry",
+  "doc": "Contains individual survey entries for a user and survey question.",
+  "fields": [
+        {
+            "doc": "Unique survey identification number.",
+            "name": "survey_id",
+            "type": "int"
+        },
+        {
+            "doc": "Unique user identification number",
+            "name": "user_id",
+            "type": "int"
+        },
+        {
+            "doc": "Survey question response.",
+            "name": "survey_response",
+            "type": "string"
+        }
+    ]
+}
