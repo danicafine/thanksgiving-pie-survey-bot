@@ -1,4 +1,3 @@
 config/config.yaml
-data/thanksgiving_pie_survey_bot.data
 __pycache__
 *.log

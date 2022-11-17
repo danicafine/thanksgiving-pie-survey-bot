@@ -15,8 +15,25 @@
             "type": "int"
         },
         {
+            "doc": "Respondent name.",
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "doc": "Respondent company.",
+            "name": "company",
+            "type": ["null","string"],
+            "default": null
+        },
+        {
+            "doc": "Respondent location.",
+            "name": "location",
+            "type": ["null","string"],
+            "default": null
+        },
+        {
             "doc": "Survey question response.",
-            "name": "survey_response",
+            "name": "response",
             "type": "string"
         }
     ]
