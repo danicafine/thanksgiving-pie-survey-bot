@@ -7,12 +7,12 @@
         {
             "doc": "Unique survey identification number.",
             "name": "survey_id",
-            "type": "int"
+            "type": "string"
         },
         {
             "doc": "Unique user identification number",
             "name": "user_id",
-            "type": "int"
+            "type": "string"
         },
         {
             "doc": "Respondent name.",

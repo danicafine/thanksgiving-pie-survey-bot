@@ -1,13 +1,13 @@
 {
   "type": "record",
   "namespace": "survey.bot",
-  "name": "survey",
+  "name": "surveyQuestion",
   "doc": "Details for a single question survey.",
   "fields": [
         {
             "doc": "Unique survey identification number.",
             "name": "survey_id",
-            "type": "int"
+            "type": "string"
         },
         {
             "doc": "Survey question.",
@@ -23,8 +23,8 @@
             "doc": "Survey response options.",
             "name": "options",
             "type": {
-                "type": "array",  
-                "items": "string"
+                "items": "string",
+                "type": "array"
             }
         },
         {

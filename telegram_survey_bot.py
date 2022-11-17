@@ -65,11 +65,10 @@ async def survey_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
 async def name_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # capture and store name data
-    name = update.message.text
-    context.user_data['name'] = name
+    context.user_data['name'] = update.message.text
 
     # get chat_id as user_id
-    context.user_data['user_id'] = update.message.chat_id
+    context.user_data['user_id'] = str(update.message.chat_id)
 
     await update.message.reply_text(
         "Enter the company that you work for or use /skip to go to the next question."
@@ -106,7 +105,7 @@ async def location_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         del context.user_data['location']
 
     # TODO, this is where survey_id and question would be fetched
-    context.user_data['survey_id'] = 1
+    context.user_data['survey_id'] = str(1)
 
     reply_keyboard = [
             ["Pumpkin Pie"], 
@@ -149,7 +148,7 @@ async def response_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -
     await update.message.reply_text(
         "Please confirm your survey responses.\n\n"
         f"{summary}"
-        "Is this correct? Reply /y to do so or use /cancel to start over.", 
+        "Is this correct? Reply /y to confirm or use /cancel to start over.", 
         reply_markup=ReplyKeyboardRemove()
     )
 
@@ -208,7 +207,7 @@ def send_entry(entry):
 async def post_init(application: Application) -> None:
     await application.bot.set_my_commands([
         ('survey', "Take current survey"),
-        ('results', "See current survey results")
+        #('results', "See current survey results")
         ])
 
 
@@ -233,7 +232,8 @@ def main() -> None:
                 CommandHandler("cancel", cancel_command)
             ],
             SURVEY_STATE.RESPONSE: [
-                MessageHandler(filters.Regex("^(Pumpkin Pie|Pecan Pie|Apple Pie|Thanksgiving Leftover Pot Pie|Other)$"), response_command),
+                MessageHandler(filters.Regex("^(Pumpkin Pie|Pecan Pie|Apple Pie|Thanksgiving Leftover Pot Pie|Other)$"), 
+                    response_command),
                 CommandHandler("cancel", cancel_command)
             ],
             SURVEY_STATE.CONFIRM: [
@@ -246,7 +246,7 @@ def main() -> None:
 
     # add handlers
     application.add_handler(survey_handler)
-    application.add_handler(CommandHandler("results", results_command))
+    #application.add_handler(CommandHandler("results", results_command))
     application.add_handler(CommandHandler("start", start_command))
 
     # run the bot application
