@@ -1,0 +1,40 @@
+{
+  "type": "record",
+  "namespace": "survey.bot",
+  "name": "surveyEntry",
+  "doc": "Contains individual survey entries for a user and survey question.",
+  "fields": [
+        {
+            "doc": "Unique survey identification number.",
+            "name": "survey_id",
+            "type": "string"
+        },
+        {
+            "doc": "Unique user identification number",
+            "name": "user_id",
+            "type": "string"
+        },
+        {
+            "doc": "Respondent name.",
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "doc": "Respondent company.",
+            "name": "company",
+            "type": ["null","string"],
+            "default": null
+        },
+        {
+            "doc": "Respondent location.",
+            "name": "location",
+            "type": ["null","string"],
+            "default": null
+        },
+        {
+            "doc": "Survey question response.",
+            "name": "response",
+            "type": "string"
+        }
+    ]
+}

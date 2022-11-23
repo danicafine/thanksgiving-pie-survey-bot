@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "namespace": "survey.bot",
+  "name": "surveyQuestion",
+  "doc": "Details for a single question survey.",
+  "fields": [
+        {
+            "doc": "Unique survey identification number.",
+            "name": "survey_id",
+            "type": "string"
+        },
+        {
+            "doc": "Survey question.",
+            "name": "question",
+            "type": "string"
+        },
+        {
+            "doc": "Shorter survey summary for display purposes.",
+            "name": "summary",
+            "type": "string"
+        },
+        {
+            "doc": "Survey response options.",
+            "name": "options",
+            "type": {
+                "items": "string",
+                "type": "array"
+            }
+        },
+        {
+            "doc": "Boolean showing if survey is currently enabled.",
+            "name": "enabled",
+            "type": "boolean"
+        }
+    ]
+}
