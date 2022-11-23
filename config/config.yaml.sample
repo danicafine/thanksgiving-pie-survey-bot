@@ -16,3 +16,6 @@ schema-registry:
 # Telegram
 telegram:
   api-token: [TELEGRAM_TOKEN]
+
+topics:
+  survey-entries: "survey-entries"
